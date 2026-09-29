@@ -1,0 +1,133 @@
+AI Intro
+--------
+
+
+token
+tokenizer
+token id
+
+transformer
+
+
+embeddings
+chunks
+rag
+
+top -p 
+top k 
+temperature
+
+
+
+vector DB
+
+User input what is computer  -----> tokenizer ----> tokens ---->tokenid's ----
+
+BPE
+
+
+import pandas
+
+
+from collections import counter
+
+
+what is
+
+
+
+
+Ġ - space
+
+
+for I in range(10)
+
+
+
+
+Token
+------
+
+
+
+input ------> Chatgpt -----> transformer ------> output
+
+
+Input ------> token
+
+
+who is litwin R ?
+12  30  40    35 56
+
+l I t w I n
+
+
+tokenizer
+
+
+BPE -  byte pair encoding
+
+?
+
+
+
+Input text -----> token ------>tokozier ----->token_id -------> transfomers ------> output
+
+
+
+I love python and transformers!
+23 34  23     23    45         65
+
+
+from transformers import GPT2Tokenizer
+
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+
+text = "I love python and transformers!"
+
+
+tokens = tokenizer.tokenize(text)
+token_ids = tokenizer.convert_tokens_to_ids(tokens)
+
+print("original text", text)
+print("tokens", tokens)
+print("token ids:", token_ids)
+
+decoded = tokenizer.decode(token_ids)
+print(decoded)
+
+
+
+
+Ġ - it mention space between the words
+
+pandas
+
+pd
+
+
+
+
+documents = [
+    "Python is a programming language used for AI and web development.",
+    "RAG means Retrieval-Augmented Generation.",
+    "In RAG, the system first searches documents and then generates an answer.",
+    "Vector RAG databases store text in numerical form for semantic search."
+]
+
+question = "What is RAG?"
+
+# Simple keyword search
+relevant_docs = [RAG means Retrieval-Augmented Generation,In RAG, the system first searches documents and then generates an answer.,"Vector RAG databases store text in numerical form for semantic search."]
+for doc in documents:
+    if "RAG" in doc or "Retrieval" in doc:
+        relevant_docs.append(doc)
+
+print("Question:", question)
+print("\nRetrieved Information:")
+for doc in relevant_docs:
+    print("-", doc)
+
+
+
+
