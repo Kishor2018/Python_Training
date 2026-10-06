@@ -1,0 +1,182 @@
+Hi  welc ome?
+12  13    15
+BPE
+
+Token
+tokenizer
+token_id
+transformers
+
+rag
+embeedings
+chunk
+vector DB ----> pinecone
+
+
+top-p - 0.9---->90%
+top -k
+
+
+
+
+volley
+cricket
+badminton
+gs
+sg
+dsf
+sf
+sdf
+sfd
+ds
+
+
+
+
+food
+
+
+
+ice cream ----->20%
+candy ---->10%
+juice ------>10%
+
+
+
+
+pizza ----> 40%
+burger ---> 20%
+
+
+import numpy as np
+
+probs = np.array([0.30, 0.25, 0.20, 0.15, 0.10])
+words = ["A", "B", "C", "D", "E"]
+
+# Top-k
+k = 2
+top_k_indices = probs.argsort()[-k:]
+top_k_probs = probs[top_k_indices]
+top_k_probs = top_k_probs / top_k_probs.sum()
+
+print("Top-k words:", [words[i] for i in top_k_indices])
+
+
+
+
+
+result = [A,b]
+
+for i in top_k_indices:
+    result.append(words[i])
+
+# Top-p
+p = 0.7
+sorted_indices = np.argsort(-probs)
+cumulative = 0
+selected = []
+
+for i in sorted_indices:
+    cumulative += probs[i]
+    selected.append(i)
+    if cumulative >= p:
+        break
+
+print("Top-p words:", [words[i] for i in selected])
+
+
+
+without Normalizaation
+===================
+import numpy as np
+
+probs = np.array([0.30, 0.25, 0.20, 0.15, 0.10])
+words = ["A", "B", "C", "D", "E"]
+
+k = 2
+indices = probs.argsort()[-k:]
+
+selected_words = [words[i] for i in indices]
+selected_probs = probs[indices]
+
+print("Without normalization:")
+print("Total:", selected_probs.sum())  # Wrong
+
+# Now fix it
+normalized_probs = selected_probs / selected_probs.sum()
+
+print("\nWith normalization:")
+print("Total:", normalized_probs.sum())  # Correct
+
+
+probs.argsort()
+→ [4, 3, 2, 1, 0]
+
+take last 2
+→ [1, 0]
+
+get probabilities
+→ [0.25, 0.30]
+
+
+
+
+Reg EX
+-------
+
+
+regex
+import re
+
+text = "the quick brown fox jumps over the lazy dog"
+
+match = re.search("brown", text)
+
+print(match)
+if match:
+    print("Match found")
+    print("Matched text:", match.group())
+    print("Starts at:", match.start())
+    print("Ends at:", match.end())
+    print("Span:", match.span())
+
+
+import re
+
+text = "The quick brown fox jumps over the lazy dog"
+
+matches = re.findall("the", text, re.IGNORECASE)
+
+print(matches)
+
+
+text = "Call me at 9876543210"
+
+match = re.search(r'9\d{9}', text)
+
+
+
+import re
+
+text = "the quick brown fox jumps over the lazy dog"
+
+matches = re.findall(r"brown|lazy", text)
+
+print(matches)
+
+
+
+import re
+
+text = "The quick brown for jumps over the lazy the dog"
+match = re.sub("the", "hi", text, count=3, flags=re.IGNORECASE)
+print(match)
+
+span
+
+
+
+
+
+
+
