@@ -74,6 +74,7 @@ Step, Output, Reason
 step:1 order the values in ascending order. And pick up that index value of each value.
 Step: 2 As per top value eg: 2, filter out the value.
 Step: 3 Normalize the value. Eg: Sum of tow values. and each value divided by it.
+Step: 4 Once get the narmalize value get, find the most probable percentage, and it will pick based on top value eg: 2
 
 Eg: The remaining top 3 probabilities sum to $0.40 + 0.25 + 0.15 = 0.80$. To form a valid probability distribution that adds up to $1.0$ ($100\%$), each value is divided by $0.80$:
 
