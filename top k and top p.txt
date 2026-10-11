@@ -88,6 +88,11 @@ normalized_probs,"[0.4545, 0.5455]",Scaled values so total probability equals 1.
 
 
 # Top-p
+import numpy as np
+
+probs = np.array([0.30, 0.25, 0.20, 0.15, 0.10])
+words = ["A", "B", "C", "D", "E"]
+
 p = 0.7
 sorted_indices = np.argsort(-probs)
 cumulative = 0
