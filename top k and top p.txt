@@ -69,6 +69,22 @@ result = [A,b]
 
 for i in top_k_indices:
     result.append(words[i])
+***Step By Step Process****
+Step, Output, Reason
+step:1 order the values in ascending order. And pick up that index value of each value.
+Step: 2 As per top value eg: 2, filter out the value.
+Step: 3 Normalize the value. Eg: Sum of tow values. and each value divided by it.
+
+Eg: The remaining top 3 probabilities sum to $0.40 + 0.25 + 0.15 = 0.80$. To form a valid probability distribution that adds up to $1.0$ ($100\%$), each value is divided by $0.80$:
+
+$\text{Prob}(\text{"mat"}) = \frac{0.40}{0.80} = 0.50$ ($50\%$)$\text{Prob}(\text{"rug"}) = \frac{0.25}{0.80} = 0.3125$ ($31.25\%$)$\text{Prob}(\text{"couch"}) = \frac{0.15}{0.80} = 0.1875$ ($18.75\%$)
+
+probs.argsort(),"[4, 3, 2, 1, 0]",Indices ordered from lowest prob (0.10) to highest (0.30).
+[-k:],"[1, 0]","Takes the last 2 indices (the top 2 choices: ""B"" and ""A"")."
+selected_probs,"[0.25, 0.30]","Raw probabilities for ""B"" and ""A"" (sum = 0.55)."
+normalized_probs,"[0.4545, 0.5455]",Scaled values so total probability equals 1.0.
+-------------------------------------------------------------------
+
 
 # Top-p
 p = 0.7
